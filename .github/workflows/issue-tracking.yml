@@ -1,0 +1,14 @@
+name: Issue Tracking
+on:
+  issues:
+    types: [opened, edited, closed, assigned, labeled, deleted]
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Output issue event
+        run: echo ${{github}}
